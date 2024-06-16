@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace WebForms
 {
@@ -12,7 +13,7 @@ namespace WebForms
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!IsPostBack && HttpContext.Current.User.Identity.IsAuthenticated)
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 AuthenticatedContent.Visible = true;
                 NonAuthenticatedContent.Visible = false;
@@ -33,9 +34,9 @@ namespace WebForms
 
         private void ShowFilesTable()
         {
-            int userId = GetCurrentUserId(); // Implement this method to retrieve UserId from Session
+            int userId = GetCurrentUserId();
 
-            if (userId != 0) // Check if UserId is valid
+            if (userId != 0)
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -70,6 +71,42 @@ namespace WebForms
                 }
             }
             return 0; // Return 0 or handle appropriately if UserId is not available
+        }
+
+        protected void DownloadFile(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Download")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+
+                int fileId = Convert.ToInt32(GridView1.DataKeys[rowIndex]["Id"]);
+
+                string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string selectQuery = "SELECT Path FROM Files WHERE Id = @Id";
+                    using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@Id", fileId);
+
+                        var reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            string path = reader["Path"].ToString();
+                            string fileName = path.Substring(path.LastIndexOf("\\") + 1);
+
+                            string contentType = "application/octet-stream";
+                            Response.Clear();
+                            Response.ContentType = contentType;
+                            Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName);
+                            Response.TransmitFile(path);
+                            Response.End();
+                        }
+                    }
+                }
+            }
         }
     }
 }

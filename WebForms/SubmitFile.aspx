@@ -6,6 +6,12 @@
             <h2>Submit File</h2>
             <asp:FileUpload ID="FileUpload" runat="server" />
             <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="UploadFile" />
+            <asp:Label ID="lblDescription" runat="server" Text="Description"></asp:Label>
+            <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
+            <p>
+                <asp:Literal ID="lblMessage" runat="server"></asp:Literal>
+            </p>
+
         </div>
     </main>
 </asp:Content>

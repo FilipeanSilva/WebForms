@@ -56,6 +56,10 @@
                         <asp:PlaceHolder ID="LogOutPlaceHolder" runat="server" Visible="true">
                             <li class="nav-item"><a class="nav-link" runat="server" href="LogOut.aspx">Log out</a></li>
                         </asp:PlaceHolder>
+                        <asp:PlaceHolder ID="SubmitFilePlaceHolder" runat="server" Visible="true">
+                            <li class="nav-item"><a class="nav-link" runat="server" href="SubmitFile.aspx">SubmitFile</a></li>
+                        </asp:PlaceHolder>
+
                     </ul>
                 </div>
             </div>

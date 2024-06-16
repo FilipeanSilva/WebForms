@@ -8,17 +8,20 @@
         </section>
 
         <asp:Panel ID="AuthenticatedContent" runat="server" Visible="false">
-            <h2>Welcome, <asp:Literal ID="litUserName" runat="server"></asp:Literal>!</h2>
+            <h2>Welcome,
+                <asp:Literal ID="litUserName" runat="server"></asp:Literal>!</h2>
             <div class="container">
                 <h1 class="mt-5">Available Files</h1>
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-striped mt-3">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="DownloadFile" DataKeyNames="Id">
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="ID" />
                         <asp:BoundField DataField="Name" HeaderText="Name" />
                         <asp:BoundField DataField="Path" HeaderText="Path" />
                         <asp:BoundField DataField="Description" HeaderText="Description" />
+                        <asp:ButtonField ButtonType="Button" CommandName="Download" Text="Download" />
                     </Columns>
                 </asp:GridView>
+
             </div>
         </asp:Panel>
 
