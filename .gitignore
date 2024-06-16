@@ -396,3 +396,33 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Visual Studio specific files
+[Dd]ebug/
+[Rr]elease/
+[Oo]bj/
+[Bb]in/
+.vs/
+*.suo
+*.user
+*.userosscache
+
+# Build outputs
+*.pdb
+*.ilk
+
+# Test results
+[Tt]est[Rr]esult*/
+
+# Cache/temp files
+*.tmp
+*.log
+
+# NuGet packages folder
+**/packages/
+
+# Ignore user-specific settings
+*.DotSettings.user
+
+# Optionally exclude wwwroot folder (uncomment if needed)
+#wwwroot/
