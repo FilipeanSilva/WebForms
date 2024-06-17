@@ -5,6 +5,9 @@
         <div>
             <h2>Register</h2>
             <p>
+                <asp:Label ID="LabelStatus" runat="server" Visible="false"></asp:Label>
+            </p>
+            <p>
                 <asp:Label ID="lblUsername" runat="server" Text="Username"></asp:Label>
                 <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
             </p>

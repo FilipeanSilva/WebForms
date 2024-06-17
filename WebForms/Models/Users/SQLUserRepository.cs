@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace WebForms.Models.Users
 {
@@ -34,7 +35,7 @@ namespace WebForms.Models.Users
         public string GetHashedPassword(int userId)
         {
             User user = context.Users.Find(userId);
-            return user.Password;
+            return user.PasswordHash;
         }
 
         public string GetSalt(int userId)
@@ -54,6 +55,16 @@ namespace WebForms.Models.Users
             context.Users.Remove(user);
             context.SaveChanges();
             return user;
+        }
+
+        public string hashPassword(string password)
+        {
+            var sha256 = System.Security.Cryptography.SHA256.Create();
+            var passwordBytes = System.Text.Encoding.UTF8.GetBytes(password);
+
+            var hashedPassword = sha256.ComputeHash(passwordBytes);
+
+            return Convert.ToBase64String(hashedPassword);
         }
     }
 }
