@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using WebForms.Data;
 
-namespace WebForms.Models.Users
+namespace WebForms.Interfaces
 {
     public interface IUser
     {

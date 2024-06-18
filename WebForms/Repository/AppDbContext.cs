@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
-using WebForms.Models.Users;
+using WebForms.Data;
 
-namespace WebForms.Models
+namespace WebForms.Services
 {
     public class AppDbContext : DbContext
     {
@@ -10,6 +10,6 @@ namespace WebForms.Models
         }
 
         public DbSet<User> Users { get; set; }
-
+        public DbSet<File> Files { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Security;
-using WebForms.Models.Users;
+using WebForms.Data;
+using WebForms.Services;
 
 namespace WebForms
 {
@@ -17,7 +18,7 @@ namespace WebForms
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            UserRepository userRepository = new UserRepository();
+            UserService userRepository = new UserService();
             User User = userRepository.Login(username, password);
             if (User != null)
             {

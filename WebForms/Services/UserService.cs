@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Linq;
+using WebForms.Data;
+using WebForms.Repository;
 
-namespace WebForms.Models.Users
+namespace WebForms.Services
 {
-    public class UserRepository
+    public class UserService
     {
         private readonly AppDbContext context;
-        private readonly SQLUserRepository sqlUserRepository;
-        public UserRepository()
+        private readonly SQLUser sqlUserRepository;
+        public UserService()
         {
             context = new AppDbContext();
-            sqlUserRepository = new SQLUserRepository(context);
+            sqlUserRepository = new SQLUser(context);
         }
 
         public User Login(string username, string password)

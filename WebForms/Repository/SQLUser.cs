@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using WebForms.Data;
+using WebForms.Interfaces;
+using WebForms.Services;
 
-namespace WebForms.Models.Users
+namespace WebForms.Repository
 {
-    public class SQLUserRepository : IUser
+    public class SQLUser : IUser
     {
         private readonly AppDbContext context;
-        public SQLUserRepository(AppDbContext context)
+        public SQLUser(AppDbContext context)
         {
             this.context = context;
         }

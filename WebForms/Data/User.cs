@@ -1,4 +1,4 @@
-﻿namespace WebForms.Models.Users
+﻿namespace WebForms.Data
 {
     public class User
     {
