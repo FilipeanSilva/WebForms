@@ -11,5 +11,6 @@ namespace WebForms.Interfaces
         string GetHashedPassword(int userId);
         string GetSalt(int userId);
         IEnumerable<User> GetAllUsers();
+        string hashPassword(string password);
     }
 }

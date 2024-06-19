@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using WebForms.Data;
+using WebForms.Interfaces;
 using WebForms.Repository;
 
 namespace WebForms.Services
@@ -8,7 +9,7 @@ namespace WebForms.Services
     public class UserService
     {
         private readonly AppDbContext context;
-        private readonly SQLUser sqlUserRepository;
+        private readonly IUser sqlUserRepository;
         public UserService()
         {
             context = new AppDbContext();
