@@ -59,7 +59,7 @@ The main goal of this project is to provide a straightforward example of how to 
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/YourUsername/YourRepositoryName.git
+   git clone git@github.com:FilipeanSilva/WebForms.git
    ```
 2. **Open the project**  
    - Launch Visual Studio.
@@ -121,50 +121,3 @@ YourRepositoryName/
 └─ Scripts/                   // JavaScript files
 └─ Styles/                    // CSS files
 ```
-
-*(Your exact folder structure may vary.)*
-
-## Contributing
-
-Contributions are welcome! To contribute:
-
-1. **Fork** the repository.
-2. **Create** a new feature branch:  
-   ```bash
-   git checkout -b feature/my-new-feature
-   ```
-3. **Commit** your changes:  
-   ```bash
-   git commit -m "Add some new feature"
-   ```
-4. **Push** to the branch:  
-   ```bash
-   git push origin feature/my-new-feature
-   ```
-5. **Open a Pull Request** describing the changes you’ve made and how they address the issue or feature request.
-
-## License
-
-Specify your chosen license here. Common choices include [MIT](https://choosealicense.com/licenses/mit/), [Apache 2.0](https://choosealicense.com/licenses/apache-2.0/), or [GPL](https://choosealicense.com/licenses/gpl-3.0/).
-
-```
-MIT License (example)
-Copyright (c) 2025 [Your Name]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-...
-```
-
-Alternatively, if you do not wish to specify a license, you can remove this section, but note that unlicensed work restricts how others can use your project.
-
-## Contact
-
-- **Author**: [Your Name]
-- **Email**: [Your Email Address]
-- **GitHub**: [Your GitHub Profile](https://github.com/YourUsername)
-
-If you have any questions or suggestions, feel free to open an issue or contact me directly.
-
----
-
-*Thank you for using this ASP.NET WebForms application! If you find it helpful, please give it a star on GitHub and share it with others.*
